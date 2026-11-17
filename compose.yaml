@@ -1,0 +1,15 @@
+services:
+  coeiroink-openai-tts:
+    build: .
+    container_name: coeiroink-openai-tts
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${APP_PORT:-50033}:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      APP_PORT: ${APP_PORT:-50033}
+      COEIROINK_URL: ${COEIROINK_URL:-http://host.docker.internal:50032}
+      API_KEY: ${API_KEY:-local}
+      DEFAULT_VOICE: ${DEFAULT_VOICE:-auto}
+      CORS_ORIGINS: ${CORS_ORIGINS:-}

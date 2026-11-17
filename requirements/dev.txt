@@ -1,0 +1,5 @@
+-c runtime.lock
+-e .
+pip-tools>=7.4,<8
+pytest>=8,<10
+ruff>=0.14,<1
